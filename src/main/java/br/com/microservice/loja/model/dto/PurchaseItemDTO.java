@@ -1,4 +1,4 @@
-package br.com.microservice.loja.controller.dto;
+package br.com.microservice.loja.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,10 +9,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Data
-public class AddressDTO {
+public class PurchaseItemDTO {
 
-	private String street;
-	private int number;
-	private String state;
+	private long id;
+	private int amount;
 	
 }

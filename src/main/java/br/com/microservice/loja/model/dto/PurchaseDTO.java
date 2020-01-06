@@ -1,4 +1,4 @@
-package br.com.microservice.loja.controller.dto;
+package br.com.microservice.loja.model.dto;
 
 import java.util.List;
 
