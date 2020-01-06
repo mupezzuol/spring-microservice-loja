@@ -14,14 +14,12 @@ public class PurchaseService implements IPurchaseService{
 
 	@Override
 	public void makePurchase(PurchaseDTO purchase) {
-		
 		RestTemplate client = new RestTemplate();
 		
 		ResponseEntity<InfoProviderDTO> exchange = client.exchange("http://localhost:8081/info/"+purchase.getAddress().getState(),
 				HttpMethod.GET, null, InfoProviderDTO.class);
 		
 		System.out.println("Address: " + exchange.getBody().getAddress());
-		
 	}
 
 }
