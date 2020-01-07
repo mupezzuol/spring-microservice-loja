@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.microservice.loja.model.Purchase;
 import br.com.microservice.loja.model.dto.PurchaseDTO;
 import br.com.microservice.loja.service.IPurchaseService;
 
@@ -17,8 +18,8 @@ public class PurchaseController {
 	private IPurchaseService purchaseService;
 	
 	@PostMapping
-	public void makePurchase(@RequestBody PurchaseDTO purchase) {
-		this.purchaseService.makePurchase(purchase);
+	public Purchase makePurchase(@RequestBody PurchaseDTO purchase) {
+		return this.purchaseService.makePurchase(purchase);
 	}
 	
 }
