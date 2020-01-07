@@ -18,9 +18,7 @@ public class PurchaseController {
 	
 	@PostMapping
 	public void makePurchase(@RequestBody PurchaseDTO purchase) {
-		
 		this.purchaseService.makePurchase(purchase);
-		
 	}
 	
 }

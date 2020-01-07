@@ -1,11 +1,9 @@
 package br.com.microservice.loja.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
+import br.com.microservice.loja.client.ProviderClient;
 import br.com.microservice.loja.model.dto.InfoProviderDTO;
 import br.com.microservice.loja.model.dto.PurchaseDTO;
 import br.com.microservice.loja.service.IPurchaseService;
@@ -14,14 +12,14 @@ import br.com.microservice.loja.service.IPurchaseService;
 public class PurchaseService implements IPurchaseService{
 	
 	@Autowired
-	private RestTemplate client;
+	private ProviderClient providerClient;
 
 	@Override
 	public void makePurchase(PurchaseDTO purchase) {
-		ResponseEntity<InfoProviderDTO> exchange = client.exchange("http://fornecedor/info/"+purchase.getAddress().getState(),
-				HttpMethod.GET, null, InfoProviderDTO.class);
 		
-		System.out.println("Address: " + exchange.getBody().getAddress());
+		InfoProviderDTO infoProviderByState = this.providerClient.getInfoProviderByState(purchase.getAddress().getState());
+		
+		System.out.println("Address: " + infoProviderByState.getAddress());
 	}
 
 }
