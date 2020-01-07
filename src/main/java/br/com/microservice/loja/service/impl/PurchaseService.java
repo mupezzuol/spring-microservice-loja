@@ -9,8 +9,10 @@ import br.com.microservice.loja.model.dto.InfoProviderDTO;
 import br.com.microservice.loja.model.dto.PurchaseDTO;
 import br.com.microservice.loja.model.dto.infoOrderDTO;
 import br.com.microservice.loja.service.IPurchaseService;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class PurchaseService implements IPurchaseService{
 	
 	@Autowired
@@ -18,17 +20,18 @@ public class PurchaseService implements IPurchaseService{
 
 	@Override
 	public Purchase makePurchase(PurchaseDTO purchase) {
+		final String state = purchase.getAddress().getState();
 		
-		InfoProviderDTO infoProviderByState = this.providerClient.getInfoProviderByState(purchase.getAddress().getState());
+		log.info("seeking information from the {} " + state);
+		InfoProviderDTO infoProviderByState = this.providerClient.getInfoProviderByState(state);
 		
+		log.info("placing an order");
 		infoOrderDTO order = this.providerClient.placeOrder(purchase.getItems());
-		
-		System.out.println("Address: " + infoProviderByState.getAddress());
 		
 		Purchase purchaseSave = new Purchase(
 				order.getId(),
 				order.getPreparationTime(),
-				purchase.getAddress().toString());
+				infoProviderByState.getAddress().toString());
 		
 		return purchaseSave;
 	}
