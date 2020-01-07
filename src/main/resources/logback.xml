@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  <appender name="PAPERTRAIL" class="ch.qos.logback.classic.net.SyslogAppender">
+	  <syslogHost>logs2.papertrailapp.com</syslogHost>
+	  <port>31965</port>
+	  <facility>USER</facility>
+	  <suffixPattern>my-app: %logger %msg</suffixPattern>  
+	</appender>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="PAPERTRAIL" />
+  </root>
+  
+</configuration>
