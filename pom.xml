@@ -48,6 +48,12 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		
+		<!-- Spring Sleuth - Help for Logs -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		
 		<!-- Util - Lombok -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
