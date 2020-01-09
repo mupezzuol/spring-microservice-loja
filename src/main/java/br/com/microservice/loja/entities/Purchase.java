@@ -1,4 +1,8 @@
-package br.com.microservice.loja.model;
+package br.com.microservice.loja.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +13,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Data
+@Entity(name = "PurchaseEntity")
+@Table(name = "tbl_purchase")
 public class Purchase {
 	
+	@Id
 	private Long orderId;
 	private Integer preparationTime;
 	private String destinationAddress;

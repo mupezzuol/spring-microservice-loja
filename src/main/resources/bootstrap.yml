@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: 'loja'
+  profiles:
+    active:
+    - default
+  cloud:
+    config:
+      url: http://localhost:8888
