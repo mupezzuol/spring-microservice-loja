@@ -21,7 +21,7 @@ public class PurchaseService implements IPurchaseService{
 	private ProviderClient providerClient;
 
 	@Override
-	@HystrixCommand
+	@HystrixCommand(fallbackMethod = "makePurchaseFallback")
 	public Purchase makePurchase(PurchaseDTO purchase) {
 		final String state = purchase.getAddress().getState();
 		
@@ -37,6 +37,12 @@ public class PurchaseService implements IPurchaseService{
 				infoProviderByState.getAddress().toString());
 		
 		return purchaseSave;
+	}
+	
+	public Purchase makePurchaseFallback(PurchaseDTO purchase) {
+		Purchase purchaseFallback = new Purchase();
+		purchaseFallback.setDestinationAddress(purchase.getAddress().toString());
+		return purchaseFallback;
 	}
 
 }
