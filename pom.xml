@@ -54,6 +54,12 @@
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
 		
+		<!-- Hystrix - Fallback and Circuit Breaker -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+		
 		<!-- Util - Lombok -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>

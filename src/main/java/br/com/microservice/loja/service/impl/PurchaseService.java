@@ -3,6 +3,8 @@ package br.com.microservice.loja.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 import br.com.microservice.loja.client.ProviderClient;
 import br.com.microservice.loja.model.Purchase;
 import br.com.microservice.loja.model.dto.InfoProviderDTO;
@@ -19,6 +21,7 @@ public class PurchaseService implements IPurchaseService{
 	private ProviderClient providerClient;
 
 	@Override
+	@HystrixCommand
 	public Purchase makePurchase(PurchaseDTO purchase) {
 		final String state = purchase.getAddress().getState();
 		
