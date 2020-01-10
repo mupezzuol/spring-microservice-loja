@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import br.com.microservice.loja.model.dto.InfoProviderDTO;
 import br.com.microservice.loja.model.dto.PurchaseItemDTO;
-import br.com.microservice.loja.model.dto.infoOrderDTO;
+import br.com.microservice.loja.model.dto.InfoOrderDTO;
 
 @FeignClient("fornecedor") //name-id that eureka server
 public interface ProviderClient {
@@ -18,6 +18,6 @@ public interface ProviderClient {
 	InfoProviderDTO getInfoProviderByState(@PathVariable String state);
 
 	@PostMapping(value = "/order")
-	infoOrderDTO placeOrder(List<PurchaseItemDTO> items);
+	InfoOrderDTO placeOrder(List<PurchaseItemDTO> items);
 
 }
