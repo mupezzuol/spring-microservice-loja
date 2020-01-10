@@ -7,6 +7,10 @@ public interface IPurchaseService {
 	
 	public Purchase makePurchase(PurchaseDTO purchase);
 	
+	public Purchase reprocessPurchase(PurchaseDTO purchase);
+	
+	public Purchase cancelPurchase(PurchaseDTO purchase);
+	
 	public Purchase findPurchaseById(Long id);
 
 }
