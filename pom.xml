@@ -98,6 +98,33 @@
 		    <scope>provided</scope>
 		</dependency>
 		
+		<!-- Spring Boot Admin - Client -->
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>2.1.5</version>
+		</dependency>
+		
+		<!-- Spring Actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		
+		<!-- Swagger2 -->
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>2.9.2</version>
+		</dependency>
+		
+		<!-- Swagger2 - UI -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		
 		<!-- Spring DevTools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

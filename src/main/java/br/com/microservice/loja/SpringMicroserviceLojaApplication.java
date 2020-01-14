@@ -14,11 +14,13 @@ import org.springframework.web.client.RestTemplate;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableFeignClients
 @EnableCircuitBreaker
 @EnableResourceServer
+@EnableSwagger2
 public class SpringMicroserviceLojaApplication {
 	
 	// Add config to intercept Feign requests for when we call another microservices to be passed the authentication token

@@ -4,7 +4,22 @@ server:
 spring:
   application:
     name: 'loja'
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:8082
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
+  endpoint:
+    health:
+      show-details: always
+      
 eureka:
   client:
     register-with-eureka: true
@@ -19,3 +34,5 @@ security:
 
 hystrix:
   shareSecurityContext: true
+
+  
