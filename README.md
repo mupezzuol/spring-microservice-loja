@@ -7,7 +7,7 @@ Microservices with Spring.
 
 #### Aplicações
 ```
-spring-microservice-loja
+[spring-microservice-loja](https://github.com/mupezzuol/spring-microservice-loja)
 ```
 
 spring-microservice-fornecedor
