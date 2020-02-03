@@ -3,38 +3,28 @@
 Microservices with Spring.
 
 
-
-
-
-## Contribuições 📌
-
-
-
-
 ## Projetos 📌
 
-### Aplicações 
+#### Aplicações 
 spring-microservice-loja
 spring-microservice-fornecedor
 spring-microservice-transportador
 
 
--- Spring Cloud and Config Server
-... repositório onde está a configuração para apontar as configurações
+#### Spring Cloud and Config Server
+Repositórios onde contém as configurações que são observadas pelo spring cloud.
 spring-microservice-config-server
-
-... repositório de configurações que são observados pelo spring cloud
 spring-microservice-config-server-repo
 
--- Spring Security - OAuth2
+#### Spring Security - OAuth2
 spring-microservice-auth
 
--- Service Registration and Discovery
+#### Service Registration and Discovery
 spring-microservice-eureka-server (Netflix Eureka)
 
--- API Gateway
+#### API Gateway
 spring-microservice-zuul (Netflix Zuul)
 
--- Monitoramento
+#### Monitoramento
 spring-microservice-boot-admin
 
