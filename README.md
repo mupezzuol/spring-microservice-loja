@@ -23,7 +23,7 @@ Microservices with Spring.
 
 - [spring-microservice-eureka-server](https://github.com/mupezzuol/spring-microservice-eureka-server) - Microservice related to Netflix Eureka server application. _Tags: `Eureka`_
 
-#### API Gateway
+#### API Gateway :traffic_light:
 
 - [spring-microservice-zuul](https://github.com/mupezzuol/spring-microservice-zuul) - Microservice related to Netflix Zuul server application. _Tags: `proxy`_
 
