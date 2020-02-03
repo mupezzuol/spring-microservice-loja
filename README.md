@@ -6,28 +6,24 @@ Microservices with Spring.
 ## Projetos 📌
 
 #### Aplicações
-```
 [spring-microservice-loja](https://github.com/mupezzuol/spring-microservice-loja)
-```
-
-spring-microservice-fornecedor
-spring-microservice-transportador
-
+[spring-microservice-fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor)
+[spring-microservice-transportador](https://github.com/mupezzuol/spring-microservice-transportador)
 
 ###### Spring Cloud and Config Server
 Repositórios onde contém as configurações que são observadas pelo spring cloud.
-spring-microservice-config-server
-spring-microservice-config-server-repo
+[spring-microservice-config-server](https://github.com/mupezzuol/spring-microservice-config-server)
+[spring-microservice-config-server-repo](https://github.com/mupezzuol/spring-microservice-config-server-repo)
 
 #### Spring Security - OAuth2
-spring-microservice-auth
+[spring-microservice-auth](https://github.com/mupezzuol/spring-microservice-auth)
 
 #### Service Registration and Discovery
-spring-microservice-eureka-server (Netflix Eureka)
+[spring-microservice-eureka-server](https://github.com/mupezzuol/spring-microservice-eureka-server) (Netflix Eureka)
 
 #### API Gateway
-spring-microservice-zuul (Netflix Zuul)
+[spring-microservice-zuul](https://github.com/mupezzuol/spring-microservice-zuul) (Netflix Zuul)
 
 #### Monitoramento
-spring-microservice-boot-admin
+[spring-microservice-boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) (Netflix Zuul)
 
