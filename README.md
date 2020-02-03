@@ -1,4 +1,4 @@
-# Microservices with Spring Boot - Store
+# Microservices with Spring Boot - Store :white_check_mark: :br:
 
 Microservices with Spring.
 
