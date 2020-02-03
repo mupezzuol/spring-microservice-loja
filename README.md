@@ -15,11 +15,11 @@ Microservices with Spring.
 - [spring-microservice-config-server](https://github.com/mupezzuol/spring-microservice-config-server) - Microservice for spring cloud configuration. _Tags: `cloud`_
 - [spring-microservice-config-server-repo](https://github.com/mupezzuol/spring-microservice-config-server-repo) - Microservice related to the config server repository. _Tags: `yaml`_
 
-#### Spring Security - OAuth2 :bowtie:
+#### Spring Security - OAuth2 :closed_lock_with_key:
 
 - [spring-microservice-auth](https://github.com/mupezzuol/spring-microservice-auth) - Microservice related to the application of authentication and authorization between microservices with OAuth2. _Tags: `OAuth2`, `Security`_
 
-#### Service Registration and Discovery
+#### Service Registration and Discovery :mag_right:
 
 - [spring-microservice-eureka-server](https://github.com/mupezzuol/spring-microservice-eureka-server) - Microservice related to Netflix Eureka server application. _Tags: `Eureka`_
 
