@@ -5,13 +5,16 @@ Microservices with Spring.
 
 ## Projetos 📌
 
-#### Aplicações 
+#### Aplicações
+```
 spring-microservice-loja
+```
+
 spring-microservice-fornecedor
 spring-microservice-transportador
 
 
-#### Spring Cloud and Config Server
+###### Spring Cloud and Config Server
 Repositórios onde contém as configurações que são observadas pelo spring cloud.
 spring-microservice-config-server
 spring-microservice-config-server-repo
