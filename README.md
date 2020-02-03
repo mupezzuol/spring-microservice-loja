@@ -6,6 +6,8 @@ Microservices with Spring.
 ## Projetos 📌
 
 #### Aplicações
+- [spring-microservice-loja](https://github.com/mupezzuol/spring-microservice-loja) - Aqui você vai encontrar conteúdo sobre desenvolvimento de aplicações Web na plataforma .NET e muito JavaScript. _Tags: `java8`, `murillo`_
+
 [spring-microservice-loja](https://github.com/mupezzuol/spring-microservice-loja)  
 [spring-microservice-fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor)  
 [spring-microservice-transportador](https://github.com/mupezzuol/spring-microservice-transportador)
