@@ -2,15 +2,15 @@
 
 Microservices with Spring.
 
-## Projects and repositories 📌
+## Projects and repositories :pushpin:
 
-#### Applications 💻
+#### Applications :computer:
 
 - [spring-microservice-loja](https://github.com/mupezzuol/spring-microservice-loja) - Microservice related to the application of the store. _Tags: `loja`_
 - [spring-microservice-fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) - Microservice related to supplier application. _Tags: `fornecedor`_
 - [spring-microservice-transportador](https://github.com/mupezzuol/spring-microservice-transportador) - Microservice related to the application of the carrier. _Tags: `transportador`_
 
-#### Spring Cloud and Config Server
+#### Spring Cloud and Config Server :open_file_folder:
 
 - [spring-microservice-config-server](https://github.com/mupezzuol/spring-microservice-config-server) - Microservice for spring cloud configuration. _Tags: `cloud`_
 - [spring-microservice-config-server-repo](https://github.com/mupezzuol/spring-microservice-config-server-repo) - Microservice related to the config server repository. _Tags: `yaml`_
@@ -27,6 +27,6 @@ Microservices with Spring.
 
 - [spring-microservice-zuul](https://github.com/mupezzuol/spring-microservice-zuul) - Microservice related to Netflix Zuul server application. _Tags: `proxy`_
 
-#### Monitoring
+#### Monitoring :chart_with_upwards_trend:
 
 - [spring-microservice-boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) - Microservice related to microservice monitoring with Spring Boot Admin. _Tags: `actuator`, `swagger`_
