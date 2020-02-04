@@ -1,6 +1,6 @@
 # Microservices with Spring Boot - Store :white_check_mark:
 
-Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so that we can use these projects as a study or as a basis for new projects, even sharing new ideas. Feel free to contribute to these projects right here.:heavy_exclamation_mark:
+Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so that we can use these projects as a study or as a basis for new projects, even sharing new ideas. Feel free to contribute to these projects right here.:hearts:
 
 ## Index
 - [About the project](#about)
