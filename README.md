@@ -2,13 +2,13 @@
 
 Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so that we can use these projects as a study or as a basis for new projects, even sharing new ideas. Feel free to contribute to these projects right here.:hearts:
 
-## Index
+## Index :pushpin:
 - [About the project](#about)
 - [Projects and repositories](#prjrepo)
 - [Clientes](#clientes)
 
 
-## Projects and repositories <a name="prjrepo"></a> :pushpin:
+## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
 #### Applications :computer:
 
