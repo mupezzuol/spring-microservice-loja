@@ -3,12 +3,13 @@
 Microservices with Spring.
 
 
-## Índice
-- [Sobre o projeto](#sobre)
+## Index
+- [About the project](#about)
+- [Projects and repositories](#prjrepo)
 - [Clientes](#clientes)
 
 
-## Projects and repositories :pushpin:
+## Projects and repositories <a name="prjrepo"></a> :pushpin:
 
 #### Applications :computer:
 
@@ -33,6 +34,6 @@ Microservices with Spring.
 
 - [spring-microservice-zuul](https://github.com/mupezzuol/spring-microservice-zuul) - Microservice related to Netflix Zuul server application. _Tags: `proxy`_
 
-#### Monitoring  <a name="clientes"></a> :chart_with_upwards_trend:
+#### Monitoring :chart_with_upwards_trend:
 
 - [spring-microservice-boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) - Microservice related to microservice monitoring with Spring Boot Admin. _Tags: `actuator`, `swagger`_
