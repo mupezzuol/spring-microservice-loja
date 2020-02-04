@@ -4,9 +4,13 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 ## Index :pushpin:
 - [About the project](#about)
+- [How to run](#run)
 - [Projects and repositories](#prjrepo)
-- [Clientes](#clientes)
+- [License](#license)
 
+## About the project <a name="about"></a> :link:
+
+## How to run <a name="run"></a>
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
@@ -16,7 +20,7 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 - [spring-microservice-fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) - Microservice related to supplier application. _Tags: `fornecedor`_
 - [spring-microservice-transportador](https://github.com/mupezzuol/spring-microservice-transportador) - Microservice related to the application of the carrier. _Tags: `transportador`_
 
-#### Spring Cloud and Config Server :open_file_folder:
+#### Spring Cloud and Config Server :notebook_with_decorative_cover:
 
 - [spring-microservice-config-server](https://github.com/mupezzuol/spring-microservice-config-server) - Microservice for spring cloud configuration. _Tags: `configuration`_
 - [spring-microservice-config-server-repo](https://github.com/mupezzuol/spring-microservice-config-server-repo) - Microservice related to the config server repository. _Tags: `yaml`_
@@ -36,3 +40,7 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 #### Monitoring :chart_with_upwards_trend:
 
 - [spring-microservice-boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) - Microservice related to microservice monitoring with Spring Boot Admin. _Tags: `actuator`, `swagger`_
+
+## License <a name="license"></a>
+
+Feel free to contribute, we continue with an _`MIT license`_.:heart_eyes: [here](https://github.com/mupezzuol/spring-microservice-loja/blob/master/LICENSE)
