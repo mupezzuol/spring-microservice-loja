@@ -10,7 +10,11 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 ## About the project <a name="about"></a> :link:
 
+This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....
+
 ## How to run <a name="run"></a>
+
+This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
@@ -43,4 +47,4 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 ## License <a name="license"></a>
 
-Feel free to contribute, we continue with an _`MIT license`_.:heart_eyes: [here](https://github.com/mupezzuol/spring-microservice-loja/blob/master/LICENSE)
+Feel free to contribute, we continue with an _`MIT license`_. :heart_eyes:[here](https://github.com/mupezzuol/spring-microservice-loja/blob/master/LICENSE)
