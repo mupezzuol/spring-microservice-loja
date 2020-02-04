@@ -12,7 +12,7 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of   
 
-![Spring Cloud](https://github.com/mupezzuol/spring-microservice-loja/tree/master/img/spring-cloud.png)
+![Spring Cloud](https://imgur.com/R3ZnqRu)
 
 .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....
 
