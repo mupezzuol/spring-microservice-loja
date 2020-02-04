@@ -2,6 +2,12 @@
 
 Microservices with Spring.
 
+
+## Índice
+- [Sobre o projeto](#sobre)
+- [Clientes](#clientes)
+
+
 ## Projects and repositories :pushpin:
 
 #### Applications :computer:
@@ -12,7 +18,7 @@ Microservices with Spring.
 
 #### Spring Cloud and Config Server :open_file_folder:
 
-- [spring-microservice-config-server](https://github.com/mupezzuol/spring-microservice-config-server) - Microservice for spring cloud configuration. _Tags: `cloud`_
+- [spring-microservice-config-server](https://github.com/mupezzuol/spring-microservice-config-server) - Microservice for spring cloud configuration. _Tags: `configuration`_
 - [spring-microservice-config-server-repo](https://github.com/mupezzuol/spring-microservice-config-server-repo) - Microservice related to the config server repository. _Tags: `yaml`_
 
 #### Spring Security - OAuth2 :closed_lock_with_key:
@@ -27,6 +33,6 @@ Microservices with Spring.
 
 - [spring-microservice-zuul](https://github.com/mupezzuol/spring-microservice-zuul) - Microservice related to Netflix Zuul server application. _Tags: `proxy`_
 
-#### Monitoring :chart_with_upwards_trend:
+#### Monitoring  <a name="clientes"></a> :chart_with_upwards_trend:
 
 - [spring-microservice-boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) - Microservice related to microservice monitoring with Spring Boot Admin. _Tags: `actuator`, `swagger`_
