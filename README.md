@@ -1,6 +1,6 @@
 # Microservices with Spring Boot - Store :white_check_mark:
 
-Microservices with Spring.
+Microservices with Spring and best of all with _`MIT license`_ so we can add even more of our knowledge by sharing new ideas.
 
 
 ## Index
