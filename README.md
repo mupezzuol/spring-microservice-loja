@@ -1,6 +1,6 @@
 # Microservices with Spring Boot - Store :white_check_mark:
 
-Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so that we can use these projects as a study or as a basis for new projects, even sharing new ideas. Feel free to contribute to these projects right here.:hearts:
+Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so that we can use these projects as a study or as a basis for new projects, even sharing new ideas:bulb:. Feel free to contribute to these projects right here.:hearts:
 
 ## Index :pushpin:
 - [About the project](#about)
@@ -12,7 +12,7 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....
 
-## How to run <a name="run"></a>
+## How to run <a name="run"></a> :wrench:
 
 This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....
 
@@ -45,6 +45,6 @@ This project was built from a use of .....This project was built from a use of .
 
 - [spring-microservice-boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) - Microservice related to microservice monitoring with Spring Boot Admin. _Tags: `actuator`, `swagger`_
 
-## License <a name="license"></a>
+## License <a name="license"></a> :clipboard:
 
 Feel free to contribute, we continue with an _`MIT license`_. :heart_eyes:[here](https://github.com/mupezzuol/spring-microservice-loja/blob/master/LICENSE)
