@@ -47,7 +47,7 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 - Foi implementado um token no formato JSON Web Tokens (JWT) padrão.
 - Para cada microserviço que queremos atribuir segurança, devemos configura-lo de uma forma que ele saiba aonde ele deve se autenticar. Quando chega uma requisição para o microserviço ele simplesmente bloqueia, após isso ele vai até o microserviço referente a segurança 'auth' para validar as informações do usuário, para dizer se pode ter acesso ao recurso ou não, se é válido ou não aquele token de acesso. Para isso devemos configurar essa chamada.
 
-_`application.yml`_
+Microservice [_auth_](https://github.com/mupezzuol/spring-microservice-auth):arrow_right:_`application.yml`_
 ```yaml
 security:
   oauth2:
