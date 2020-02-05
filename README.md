@@ -26,7 +26,7 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 
 #### Spring Cloud OpenFeign
 
-- Foi utilizado Spring Feign para realizar chamadas entre micro serviços através de chamadas bem simples para seus clientes, é um projeto que foi inspirado em Retrofit, JAXRS-2.0 e WebSocket. Com ele nós também conseguimos utilizar o Client Side Load Balancer pois o Feign é integrado com o Ribbon, que por sua vez também é integrado com o Eureka.
+- Foi utilizado Spring Feign para realizar chamadas entre micro serviços de forma simples para seus clientes, é um projeto que foi inspirado em Retrofit, JAXRS-2.0 e WebSocket. Com ele nós também conseguimos utilizar o Client Side Load Balancer pois o Feign é integrado com o Ribbon, que por sua vez também é integrado com o Eureka.
 
 #### Spring Cloud Sleuth
 
@@ -43,8 +43,8 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 
 #### Spring Cloud OAuth (OAuth2) - Authentication and authorization between microservices
 
-- Nós configuramos toda a segurança com o Spring Security e Spring Cloud OAauth e plugamos através de adapters padrões do security e do OAuth2. O usuário e senha estão em memória para facilitar na construção do projeto e testes.
-- Foi implementado um JWT padrão.
+- Nós configuramos toda a segurança com o Spring Security e Spring Cloud OAuth e plugamos através de adapters padrões do spring security com o OAuth2. O usuário e senha estão em memória para facilitar nos testes.
+- Foi implementado um token no formato JSON Web Tokens (JWT) padrão.
 - Para cada microserviço que queremos atribuir segurança, devemos configura-lo de uma forma que ele saiba aonde ele deve se autenticar. Quando chega uma requisição para o microserviço ele simplesmente bloqueia, após isso ele vai até o microserviço referente a segurança 'auth' para validar as informações do usuário, para dizer se pode ter acesso ao recurso ou não, se é válido ou não aquele token de acesso. Para isso devemos configurar essa chamada.
 
 _`application.yml`_
@@ -55,7 +55,7 @@ security:
       user-info-uri: http://localhost:8088/user
 ```
 
-- Quando estamos utilizando um API Gateway nós precisamos repassar o token de acesso da requisição que chega ao Zuul para a requisição que o Zuul faz para os microserviços, para isso configuramos da seguinte forma:
+- Quando estamos utilizando um API Gateway nós precisamos repassar o token de acesso da requisição que chega ao Zuul para a requisição que o Zuul faz para os microserviços, para isso configuramos da seguinte forma.
 
 _`application.yml`_
 ```yaml
@@ -64,11 +64,9 @@ zuul:
   - Cookie, Authorization
 ```
 
-- No microserviço 'loja' quando recebemos um token de acesso para realizar uma operação de compra por exemplo, nós precisamos pegar esse mesmo token e repassar para as nossas chamadas aos clientes (Feign) de outros microserviços, pois quando usamos o Feign ele irá realizar novas requisições aos clientes, porém ele não sabe as informações do header originário da requisição, por isso devemos configura-lo para ele saber qual é o header que ele deverá passar para as suas requisições aos clientes, pois os outros microserviços irão precisar se autenticar também.
+- No microserviço 'loja' quando recebemos um token de acesso para realizar uma operação de compra por exemplo, nós precisamos pegar esse mesmo token e repassar para as nossas chamadas aos clientes (Feign) de outros microserviços, pois quando usamos o Feign ele irá realizar novas requisições aos clientes, porém ele não sabe as informações do header originário da requisição, por isso devemos configura-lo para ele saber qual é o header que ele deverá repassar para as suas requisições aos clientes, pois os outros microserviços irão precisar se autenticar também.
 
-- Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista, nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário.
-
-- É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
+- Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista, nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário, dessa forma o Feign consegue repassar o token para suas chamadas.
 
 _`SpringMicroserviceLojaApplication.java`_
 ```java
@@ -88,6 +86,9 @@ public RequestInterceptor getInterceptorDeAutenticacao() {
         }
     };
 }
+
+- É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
+
 ```
 _`application.yml`_
 ```yaml
