@@ -12,7 +12,9 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arquitetura baseada em micro serviços utilizando todo o poder do Spring Cloud e suas tecnologias. Quando estamos trabalhando com Spring temos diversas vantagens por ganharmos tecnologias e soluções já prontas para serem implementadas, portanto fizemos o uso de algumas delas.  
 
-Nós quebramos o domínio da solução em 3 projetos (loja, fornecedor, transportador), sendo assim em nossas APIs nós utilizamos algumas tecnologias e soluções para construir uma arquitetura sólida, segura, rastreável e escalável. Segue abaixo.:arrow_down:
+#### Breaking the domain into services
+
+- Nós quebramos o domínio da solução em 3 projetos (loja, fornecedor, transportador), sendo assim em nossas APIs nós utilizamos algumas tecnologias e soluções para construir uma arquitetura sólida, segura, rastreável e escalável. Segue abaixo.:arrow_down:
 
 #### Netflix Eureka
 
@@ -33,7 +35,13 @@ Nós quebramos o domínio da solução em 3 projetos (loja, fornecedor, transpor
 
 #### Netflix Hystrix
 
-- Usamos o _`Netflix Hystrix`_ que implementa o padrão Circuit Breaker, que de forma bem rápida é um _`failover`_ para chamadas entre micro serviços, ou seja, caso um micro serviço estiver fora do ar um método de _`fallback`_ é chamado e aquela enxurrada de falhas é evitada.
+- Usamos o _`Netflix Hystrix`_ que implementa o padrão Circuit Breaker, que de forma bem rápida é um _`failover`_ para chamadas entre micro serviços, ou seja, caso um micro serviço estiver fora do ar um método de _`fallback`_ é chamado e aquela enxurrada de falhas é evitada. Nós também conseguimos usar o Bulkhead Pattern usando o 'threadPoolKey' do próprio Hystrix para isolarmos as threads e não travar nossos serviços.
+
+#### Handling errors in the integration between services
+
+To deal with this type of error we made a simple implementation, where each step that the microservice store requests for other services we save the request status in the entity, so that if there is Hystrix treatment we can make another request from that state. Here are the status we use: _`RECEIVED`_, _`ORDER_REQUESTED`_ and _`RESERVE_DELIVERED`_.
+
+![Spring Cloud](img/errors-status.png)
 
 #### Spring Cloud with Spring Boot
 
