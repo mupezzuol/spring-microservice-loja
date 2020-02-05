@@ -46,7 +46,13 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 - Nós configuramos toda a segurança com o Spring Security e Spring Cloud OAauth e plugamos através de adapters padrões do secuirty e do OAuth2. O usuário e senha estão em memória, facilita na construção do projeto e testes.
 - Em nosso JWT nós adicionamos um escopo web e mobile, e nosso cliente como loja, portanto segue a implementação padrão do JWT.
 - Para cada microserviço que queremos atribuir segurança, devemos configura-lo de uma forma que ele saiba aonde ele deve se autenticar, quando chega uma requisição para o microserviço ele simplesmente bloqueia, após isso ele vai até o microserviço 'auth' para validar as informações do usuário, para dizer se pode ter acesso ao recurso ou não, se é válido ou não aquele token de acesso. Para isso devemos configurar esse fluxo, segue abaixo.:arrow_down:
-![OAuth2](img/oauth-get-user.png)
+
+```yaml
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8088/user
+```
 
 - Quando estamos utilizando um API Gateway nós precisamos repassar o token de acesso da requisição que chega ao Zuul para a requisição que o Zuul faz para os microserviços, para isso configuramos da seguinte forma:
 
