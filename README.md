@@ -34,21 +34,66 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 
 #### Netflix Hystrix
 
-- Usamos o _`Netflix Hystrix`_ que implementa o padrão Circuit Breaker, que de forma bem rápida é um _`failover`_ para chamadas entre micro serviços, ou seja, caso um micro serviço estiver fora do ar um método de _`fallback`_ é chamado e aquela enxurrada de falhas é evitada. Nós também conseguimos usar o Bulkhead Pattern usando o 'threadPoolKey' do próprio Hystrix para isolarmos as threads e não travar nossos serviços.
+- Usamos o _`Netflix Hystrix`_ que implementa o padrão Circuit Breaker, que de forma bem rápida é um _`failover`_ para chamadas entre micro serviços, ou seja, caso um micro serviço estiver fora do ar um método de _`fallback`_ é chamado e aquela enxurrada de falhas é evitada.
+- Nós também conseguimos usar o Bulkhead Pattern usando o 'threadPoolKey' do próprio Hystrix para isolarmos as threads e não travar nossos serviços.
 
 #### API Gateway with Spring Zuul
 
 - We use Spring Zuul as an API Gateway because its implementation and its high integration with Netflix Eureka are very simple. Zuul uses Eureka to know the instances of microservices and, using the Ribbon, is able to load balance user requests.
 
-#### Spring Security - OAuth2 - Authentication and authorization between microservices
+#### Spring Cloud OAuth (OAuth2) - Authentication and authorization between microservices
 
-- aaaaaa
+- Nós configuramos toda a segurança com o Spring Security e Spring Cloud OAauth e plugamos através de adapters padrões do secuirty e do OAuth2. O usuário e senha estão em memória, facilita na construção do projeto e testes.
+- Em nosso JWT nós adicionamos um escopo web e mobile, e nosso cliente como loja, portanto segue a implementação padrão do JWT.
+- Para cada microserviço que queremos atribuir segurança, devemos configura-lo de uma forma que ele saiba aonde ele deve se autenticar, quando chega uma requisição para o microserviço ele simplesmente bloqueia, após isso ele vai até o microserviço 'auth' para validar as informações do usuário, para dizer se pode ter acesso ao recurso ou não, se é válido ou não aquele token de acesso. Para isso devemos configurar esse fluxo, segue abaixo.:arrow_down:
+![OAuth2](img/oauth-get-user.png)
+
+- Quando estamos utilizando um API Gateway nós precisamos repassar o token de acesso da requisição que chega ao Zuul para a requisição que o Zuul faz para os microserviços, para isso configuramos da seguinte forma:
+
+```yaml
+zuul:
+  sensitive-headers:
+  - Cookie, Authorization
+```
+
+![OAuth2](img/zuul-config.png)
+
+- No microserviço 'loja' quando recebemos um token de acesso para realizar um operação de compra por exemplo, nós precisamos pegar esse mesmo token e repassar para as nossas chamadas aos clientes (Feign) de outros microserviços, pois quando usamos o Feign ele irá realizar novas requisições aos clientes, porém ele não sabe as informações do header originário da requisição, por isso devemos configura-lo para ele saber qual é o header que ele deverá passar para as suas requisições aos clientes, pois os outros microserviços irão precisar se autenticar também.
+
+Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário.
+
+É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
+
+```java
+    // Add config to intercept Feign requests for when we call another microservices to be passed the authentication token
+	// Add config in file 'application.yml'-> hystrix.shareSecurityContext: true
+	@Bean
+	public RequestInterceptor getInterceptorDeAutenticacao() {
+		return new RequestInterceptor() {
+			@Override
+			public void apply(RequestTemplate template) {
+				Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+				if(authentication == null) {
+					return;
+				}
+				
+				OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails)authentication.getDetails();
+				template.header("Authorization", "Bearer" + details.getTokenValue());
+			}
+		};
+	}
+```
+
+
+
+Segue abaixo o fluxo do OAuth2.:arrow_down:
+![OAuth2](img/oauth2-fluxo.png)
 
 #### Handling errors in the integration between services
 
 - To deal with this type of error we made a simple implementation, where each step that the microservice store requests for other services we save the request status in the entity, so that if there is Hystrix treatment we can make another request from that state. Here are the status we use: _`RECEIVED`_, _`ORDER_REQUESTED`_ and _`RESERVE_DELIVERED`_.
 
-![Spring Cloud](img/errors-status.png)
+![Errors Status](img/errors-status.png)
 
 #### Spring Cloud with Spring Boot
 
