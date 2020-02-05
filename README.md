@@ -47,7 +47,7 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 - Foi implementado um token no formato JSON Web Tokens (JWT) padrão.
 - Para cada microserviço que queremos atribuir segurança, devemos configura-lo de uma forma que ele saiba aonde ele deve se autenticar. Quando chega uma requisição para o microserviço ele simplesmente bloqueia, após isso ele vai até o microserviço referente a segurança 'auth' para validar as informações do usuário, para dizer se pode ter acesso ao recurso ou não, se é válido ou não aquele token de acesso. Para isso devemos configurar essa chamada.
 
-Microservice [_auth_](https://github.com/mupezzuol/spring-microservice-auth):arrow_right:_`application.yml`_
+Microservice [__auth__](https://github.com/mupezzuol/spring-microservice-auth) -> _`application.yml`_
 ```yaml
 security:
   oauth2:
@@ -57,7 +57,7 @@ security:
 
 - Quando estamos utilizando um API Gateway nós precisamos repassar o token de acesso da requisição que chega ao Zuul para a requisição que o Zuul faz para os microserviços, para isso configuramos da seguinte forma.
 
-_`application.yml`_
+Microservice [__zuul__](https://github.com/mupezzuol/spring-microservice-zuul) -> _`application.yml`_
 ```yaml
 zuul:
   sensitive-headers:
@@ -68,7 +68,7 @@ zuul:
 
 - Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista, nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário, dessa forma o Feign consegue repassar o token para suas chamadas.
 
-_`SpringMicroserviceLojaApplication.java`_
+Microservice [__loja__](https://github.com/mupezzuol/spring-microservice-loja) -> _`SpringMicroserviceLojaApplication.java`_
 ```java
 // Add config to intercept Feign requests for when we call another microservices to be passed the authentication token
 @Bean
@@ -90,7 +90,7 @@ public RequestInterceptor getInterceptorDeAutenticacao() {
 
 - É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
 
-_`application.yml`_
+Microservice [__loja__](https://github.com/mupezzuol/spring-microservice-loja) -> _`application.yml`_
 ```yaml
 hystrix:
   shareSecurityContext: true
