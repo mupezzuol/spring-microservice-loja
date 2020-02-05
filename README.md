@@ -58,10 +58,11 @@ zuul:
 
 - No microserviço 'loja' quando recebemos um token de acesso para realizar um operação de compra por exemplo, nós precisamos pegar esse mesmo token e repassar para as nossas chamadas aos clientes (Feign) de outros microserviços, pois quando usamos o Feign ele irá realizar novas requisições aos clientes, porém ele não sabe as informações do header originário da requisição, por isso devemos configura-lo para ele saber qual é o header que ele deverá passar para as suas requisições aos clientes, pois os outros microserviços irão precisar se autenticar também.
 
-Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário.
+- Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário.
 
-É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
+- É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
 
+_`SpringMicroserviceLojaApplication.java`_
 ```java
 // Add config to intercept Feign requests for when we call another microservices to be passed the authentication token
 // Add config in file 'application.yml'-> hystrix.shareSecurityContext: true
@@ -80,6 +81,11 @@ public RequestInterceptor getInterceptorDeAutenticacao() {
         }
     };
 }
+```
+_`application.yml`_
+```yaml
+hystrix:
+  shareSecurityContext: true
 ```
 
 Segue abaixo o fluxo do OAuth2.:arrow_down:
