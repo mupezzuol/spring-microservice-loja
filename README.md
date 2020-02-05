@@ -86,10 +86,10 @@ public RequestInterceptor getInterceptorDeAutenticacao() {
         }
     };
 }
+```
 
 - É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
 
-```
 _`application.yml`_
 ```yaml
 hystrix:
