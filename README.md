@@ -14,17 +14,17 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 
 #### Breaking the domain into services
 
-- Nós quebramos o domínio da solução em 3 projetos (loja, fornecedor, transportador), sendo assim em nossas APIs nós utilizamos algumas tecnologias e soluções para construir uma arquitetura sólida, segura, rastreável e escalável. Segue abaixo.:arrow_down:
+- Nós quebramos o domínio da solução em 3 projetos (loja, fornecedor, transportador), sendo assim em nossas APIs nós utilizamos algumas tecnologias e soluções para construir uma arquitetura sólida, segura, rastreável e escalável.
 
-#### Netflix Eureka
+#### Spring Cloud Netflix Eureka
 
 - Usamos o Netflix Eureka como uma solução de Service Discovery, ela é bem simples e fácil de implementar.
 
-#### Config Server
+#### Spring Cloud Config
 
-- As configurações yaml dos projetos foram todas exportadas e configuradas através da tecnologia do Spring Cloud com o Config Server.
+- As configurações yaml dos projetos foram todas exportadas e configuradas através do microserviço 'Config Server'.
 
-#### Spring Feign
+#### Spring Cloud OpenFeign
 
 - Foi utilizado Spring Feign para realizar chamadas entre micro serviços através de chamadas bem simples para seus clientes, é um projeto que foi inspirado em Retrofit, JAXRS-2.0 e WebSocket. Com ele nós também conseguimos utilizar o Client Side Load Balancer pois o Feign é integrado com o Ribbon, que por sua vez também é integrado com o Eureka.
 
@@ -37,16 +37,17 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 - Usamos o _`Netflix Hystrix`_ que implementa o padrão Circuit Breaker, que de forma bem rápida é um _`failover`_ para chamadas entre micro serviços, ou seja, caso um micro serviço estiver fora do ar um método de _`fallback`_ é chamado e aquela enxurrada de falhas é evitada.
 - Nós também conseguimos usar o Bulkhead Pattern usando o 'threadPoolKey' do próprio Hystrix para isolarmos as threads e não travar nossos serviços.
 
-#### API Gateway with Spring Zuul
+#### Netflix Zuul
 
 - We use Spring Zuul as an API Gateway because its implementation and its high integration with Netflix Eureka are very simple. Zuul uses Eureka to know the instances of microservices and, using the Ribbon, is able to load balance user requests.
 
 #### Spring Cloud OAuth (OAuth2) - Authentication and authorization between microservices
 
-- Nós configuramos toda a segurança com o Spring Security e Spring Cloud OAauth e plugamos através de adapters padrões do secuirty e do OAuth2. O usuário e senha estão em memória, facilita na construção do projeto e testes.
-- Em nosso JWT nós adicionamos um escopo web e mobile, e nosso cliente como loja, portanto segue a implementação padrão do JWT.
-- Para cada microserviço que queremos atribuir segurança, devemos configura-lo de uma forma que ele saiba aonde ele deve se autenticar, quando chega uma requisição para o microserviço ele simplesmente bloqueia, após isso ele vai até o microserviço 'auth' para validar as informações do usuário, para dizer se pode ter acesso ao recurso ou não, se é válido ou não aquele token de acesso. Para isso devemos configurar esse fluxo, segue abaixo.:arrow_down:
+- Nós configuramos toda a segurança com o Spring Security e Spring Cloud OAauth e plugamos através de adapters padrões do security e do OAuth2. O usuário e senha estão em memória para facilitar na construção do projeto e testes.
+- Foi implementado um JWT padrão.
+- Para cada microserviço que queremos atribuir segurança, devemos configura-lo de uma forma que ele saiba aonde ele deve se autenticar. Quando chega uma requisição para o microserviço ele simplesmente bloqueia, após isso ele vai até o microserviço referente a segurança 'auth' para validar as informações do usuário, para dizer se pode ter acesso ao recurso ou não, se é válido ou não aquele token de acesso. Para isso devemos configurar essa chamada.
 
+_`application.yml`_
 ```yaml
 security:
   oauth2:
@@ -63,9 +64,9 @@ zuul:
   - Cookie, Authorization
 ```
 
-- No microserviço 'loja' quando recebemos um token de acesso para realizar um operação de compra por exemplo, nós precisamos pegar esse mesmo token e repassar para as nossas chamadas aos clientes (Feign) de outros microserviços, pois quando usamos o Feign ele irá realizar novas requisições aos clientes, porém ele não sabe as informações do header originário da requisição, por isso devemos configura-lo para ele saber qual é o header que ele deverá passar para as suas requisições aos clientes, pois os outros microserviços irão precisar se autenticar também.
+- No microserviço 'loja' quando recebemos um token de acesso para realizar uma operação de compra por exemplo, nós precisamos pegar esse mesmo token e repassar para as nossas chamadas aos clientes (Feign) de outros microserviços, pois quando usamos o Feign ele irá realizar novas requisições aos clientes, porém ele não sabe as informações do header originário da requisição, por isso devemos configura-lo para ele saber qual é o header que ele deverá passar para as suas requisições aos clientes, pois os outros microserviços irão precisar se autenticar também.
 
-- Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário.
+- Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista, nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário.
 
 - É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
 
@@ -94,7 +95,7 @@ hystrix:
   shareSecurityContext: true
 ```
 
-Segue abaixo o fluxo do OAuth2.:arrow_down:
+Segue abaixo o fluxo do OAuth2.
 ![OAuth2](img/oauth2-fluxo.png)
 
 #### Handling errors in the integration between services
