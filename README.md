@@ -10,9 +10,31 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 ## About the project <a name="about"></a> :link:
 
-O projeto é baseado murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo murillo
+O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arquitetura baseada em micro serviços utilizando todo o poder do Spring Cloud e suas tecnologias. Quando estamos trabalhando com Spring temos diversas vantagens por ganharmos tecnologias e soluções já prontas para serem implementadas, portanto fizemos o uso de algumas delas.  
 
-###### Spring Cloud with Spring Boot
+Nós quebramos o domínio da solução em 3 projetos (loja, fornecedor, transportador), sendo assim em nossas APIs nós utilizamos algumas tecnologias e soluções para construir uma arquitetura sólida, segura, rastreável e escalável. Segue abaixo. :arrow_down:
+
+#### Netflix Eureka
+
+- Usamos o Netflix Eureka como uma solução de Service Discovery, ela é bem simples e fácil de implementar.
+
+#### Config Server
+
+- As configurações yaml dos projetos foram todas exportadas e configuradas através da tecnologia dp Spring Cloud com o Config Server.
+
+#### Spring Feign
+
+- Foi utilizado Spring Feign para realizar chamadas entre micro serviços através de chamadas bem simples para seus clientes, é um projeto que foi inspirado em Retrofit, JAXRS-2.0 e WebSocket. Com ele nós também conseguimos utilizar o Client Side Load Balancer pois o Feign é integrado com o Ribbon, que por sua vez também é integrado com o Eureka.
+
+#### Netflix Eureka
+
+- Spring Cloud Sleuth was used to assist us with Distributed Tracing, responsible for implementing a distributed tracking solution, which helps us track requests between microservices through a correlation ID, so that we can track the entire flow of a request that goes through several microservices. To observe the logs we use Papertrail.
+
+
+.........
+Usamos o _`Netflix Hystrix`_ que implementa o padrão Circuit Breaker, que de forma bem rápida é um _`failover`_ para chamadas entre micro serviços, ou seja, caso um micro serviço estiver fora do ar um método de _`fallback`_ é chamado e aquela enxurrada de falhas é evitada.
+
+#### Spring Cloud with Spring Boot
 
 Building distributed systems doesn't need to be complex and error-prone. Spring Cloud offers a simple and accessible programming model to the most common distributed system patterns, helping developers build resilient, reliable, and coordinated applications. Spring Cloud is built on top of Spring Boot, making it easy for developers to get started and become productive quickly.
 
