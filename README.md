@@ -32,14 +32,21 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 
 - Spring Cloud Sleuth was used to assist us with Distributed Tracing, responsible for implementing a distributed tracking solution, which helps us track requests between microservices through a correlation ID, so that we can track the entire flow of a request that goes through several microservices. To observe the logs we use Papertrail.
 
-
 #### Netflix Hystrix
 
 - Usamos o _`Netflix Hystrix`_ que implementa o padrão Circuit Breaker, que de forma bem rápida é um _`failover`_ para chamadas entre micro serviços, ou seja, caso um micro serviço estiver fora do ar um método de _`fallback`_ é chamado e aquela enxurrada de falhas é evitada. Nós também conseguimos usar o Bulkhead Pattern usando o 'threadPoolKey' do próprio Hystrix para isolarmos as threads e não travar nossos serviços.
 
+#### API Gateway with Spring Zuul
+
+- We use Spring Zuul as an API Gateway because its implementation and its high integration with Netflix Eureka are very simple. Zuul uses Eureka to know the instances of microservices and, using the Ribbon, is able to load balance user requests.
+
+#### Spring Security - OAuth2 - Authentication and authorization between microservices
+
+- aaaaaa
+
 #### Handling errors in the integration between services
 
-To deal with this type of error we made a simple implementation, where each step that the microservice store requests for other services we save the request status in the entity, so that if there is Hystrix treatment we can make another request from that state. Here are the status we use: _`RECEIVED`_, _`ORDER_REQUESTED`_ and _`RESERVE_DELIVERED`_.
+- To deal with this type of error we made a simple implementation, where each step that the microservice store requests for other services we save the request status in the entity, so that if there is Hystrix treatment we can make another request from that state. Here are the status we use: _`RECEIVED`_, _`ORDER_REQUESTED`_ and _`RESERVE_DELIVERED`_.
 
 ![Spring Cloud](img/errors-status.png)
 
