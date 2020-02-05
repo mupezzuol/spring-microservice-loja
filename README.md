@@ -56,6 +56,7 @@ security:
 
 - Quando estamos utilizando um API Gateway nós precisamos repassar o token de acesso da requisição que chega ao Zuul para a requisição que o Zuul faz para os microserviços, para isso configuramos da seguinte forma:
 
+_`application.yml`_
 ```yaml
 zuul:
   sensitive-headers:
@@ -71,7 +72,6 @@ zuul:
 _`SpringMicroserviceLojaApplication.java`_
 ```java
 // Add config to intercept Feign requests for when we call another microservices to be passed the authentication token
-// Add config in file 'application.yml'-> hystrix.shareSecurityContext: true
 @Bean
 public RequestInterceptor getInterceptorDeAutenticacao() {
     return new RequestInterceptor() {
