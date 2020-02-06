@@ -124,16 +124,14 @@ Para execução.....
 #### Database
 
 - Nós utilizamos o banco de dados _`PostgreSQL`_ para o microserviço __fornecedor__ e o banco de dados _`MySQL`_ para os microserviços __loja__ and __transportador__. Dessa forma conseguimos trabalhar com bancos de dados diversos, usamos dessa forma por questões de estudo e aprendizado.
-- Usando _`Docker`_ é bem simples criar a base de dados, fica a recomendação, caso queria usar, poderão utilizar os comandos abaixo:
+- Usando _`Docker`_ é bem simples criar, segue abaixo:
 
-PostgreSQL:floppy_disk:
-
+`PostgreSQL`
 ```docker
 docker run --name my-postgres -e "POSTGRES_PASSWORD=postgres" -e "POSTGRES_USER=postgres" -e "PGDATA=/var/lib/postgresql/data/pgdata" -p 5432:5432 -v /your-volumes:/var/lib/postgresql/data -d postgres:9.5
 ```
 
-MySQL:floppy_disk:
-
+`MySQL`
 ```docker
 docker run --name my-mysql -v /your-volumes:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8.0
 ```
