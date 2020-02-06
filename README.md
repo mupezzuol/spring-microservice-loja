@@ -113,18 +113,20 @@ Building distributed systems doesn't need to be complex and error-prone. Spring 
 
 ## How to run <a name="run"></a> :wrench:
 
-Para execução.....
+Follow the instructions below to build and execute the project in a simple and easy way, but feel free to run the way you want.:relaxed:
 
 #### What you need to have installed
 
 - Java 8;
 - Maven;
-- PostgreSQL and MySQL (recommended to use Docker).
+- PostgreSQL and MySQL (recommended to use Docker);
+- Postman for testing. 
 
 #### Database
 
-- Nós utilizamos o banco de dados _`PostgreSQL`_ para o microserviço __[fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor)__ e o banco de dados _`MySQL`_ para os microserviços __[loja](https://github.com/mupezzuol/spring-microservice-loja)__ and __[transportador](https://github.com/mupezzuol/spring-microservice-transportador)__. Dessa forma conseguimos trabalhar com bancos de dados diversos, usamos dessa forma por questões de estudo e aprendizado.
-- Usando _`Docker`_ é bem simples utilizar os bancos de dados, segue abaixo:
+- We use the _`PostgreSQL`_ database for the microservice __[fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor)__ and the _`MySQL`_ database for the microservices __[loja](https://github.com/mupezzuol/spring-microservice-loja)__ and __[transportador](https://github.com/mupezzuol/spring-microservice-transportador)__. That way we can work with different databases, we use it that way for study and learning reasons.
+- After installation, the respective databases must be created, _`loja, fornecedor and transportador.`_
+- Using _`Docker`_ it is very simple to use the databases, see below:
 
 `PostgreSQL`
 ```docker
@@ -140,7 +142,7 @@ docker run --name my-mysql -v /your-volumes:/var/lib/mysql -e MYSQL_ROOT_PASSWOR
 
 #### Build and Run
 
-- Seguindo a ordem dos microserviços abaixo, execute o comando via terminal em seus respectivos microserviço:
+- Following the order of the microservices below, execute the command via terminal in their respective microservices:
 
 ```sh
 mvn clean install spring-boot:run -Dmaven.test.skip=true
@@ -157,11 +159,11 @@ mvn clean install spring-boot:run -Dmaven.test.skip=true
 - [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) _`8081`_
 - [transportador](https://github.com/mupezzuol/spring-microservice-transportador) _`8083`_
 
-Fique livre para utilizar a sua IDE favorita.:relaxed:
+Stay free to use your favorite IDE.:relaxed:
 
 #### Postman
 
-- Para realizar os testes aos serviços, segue o arquivo _`microservices-murillo-pezzuol.postman_collection.json`_ para ser importado no Postman localizado na raiz do repositório __[loja](https://github.com/mupezzuol/spring-microservice-loja)__.
+- To perform the services tests, follow the file _`microservices-murillo-pezzuol.postman_collection.json`_ to be imported into Postman located at the root of the repository __[loja](https://github.com/mupezzuol/spring-microservice-loja)__.
 
 ![Postman](img/postman.png)
 
