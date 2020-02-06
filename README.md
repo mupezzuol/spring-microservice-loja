@@ -124,7 +124,7 @@ Para execução.....
 #### Database
 
 - Nós utilizamos o banco de dados _`PostgreSQL`_ para o microserviço __[fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor)__ e o banco de dados _`MySQL`_ para os microserviços __[loja](https://github.com/mupezzuol/spring-microservice-loja)__ and __[transportador](https://github.com/mupezzuol/spring-microservice-transportador)__. Dessa forma conseguimos trabalhar com bancos de dados diversos, usamos dessa forma por questões de estudo e aprendizado.
-- Usando _`Docker`_ é bem simples criar, segue abaixo:
+- Usando _`Docker`_ é bem simples utilizar os bancos de dados, segue abaixo:
 
 `PostgreSQL`
 ```docker
@@ -138,16 +138,30 @@ docker run --name my-mysql -v /your-volumes:/var/lib/mysql -e MYSQL_ROOT_PASSWOR
 
 - Docker Official Images: [PostgreSQL](https://hub.docker.com/_/postgres) and [MySQL](https://hub.docker.com/_/mysql).
 
-#### Upload the microservices in the order below
+#### Build and Run
+
+- Seguindo a ordem dos microserviços abaixo, execute o comando via terminal em seus respectivos microserviço:
+
+```sh
+mvn clean install spring-boot:run -Dmaven.test.skip=true
+```
+
+:arrow_heading_down:
 
 - [config-server](https://github.com/mupezzuol/spring-microservice-config-server) _`8888`_
-- [eureka](https://github.com/mupezzuol/spring-microservice-eureka-server) _`8761`_
+- [eureka-server](https://github.com/mupezzuol/spring-microservice-eureka-server) _`8761`_
 - [zuul](https://github.com/mupezzuol/spring-microservice-zuul) _`5555`_
 - [boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) _`8082`_
 - [auth](https://github.com/mupezzuol/spring-microservice-auth) _`8088`_
 - [loja](https://github.com/mupezzuol/spring-microservice-loja) _`8080`_
 - [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) _`8081`_
 - [transportador](https://github.com/mupezzuol/spring-microservice-transportador) _`8083`_
+
+Fique livre para utilizar a sua IDE favorita.:relaxed:
+
+#### Postman
+
+- Segue HERE um arquivo exportado do Postman com tod..
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
