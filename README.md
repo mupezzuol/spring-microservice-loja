@@ -161,7 +161,7 @@ mvn clean install spring-boot:run -Dmaven.test.skip=true
 
 Stay free to use your favorite IDE.:relaxed:
 
-Using Spring Tools Suite 4 it is very simple to upload microservices.:heart_eyes:
+Using _`Spring Tools Suite 4`_ it is very simple to upload microservices.:heart_eyes:
 ![sts4](img/gif-sts4.gif)
 
 #### Postman
@@ -171,7 +171,7 @@ Using Spring Tools Suite 4 it is very simple to upload microservices.:heart_eyes
 ![Postman](img/postman.png)
 
 Below are some tests performed on Postman..:heart_eyes:
-![sts4](img/postman-test.gif)
+![sts4](img/postman-endpoints.gif)
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
