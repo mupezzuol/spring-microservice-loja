@@ -138,11 +138,7 @@ docker run --name my-mysql -v /your-volumes:/var/lib/mysql -e MYSQL_ROOT_PASSWOR
 
 - Docker Official Images: [PostgreSQL](https://hub.docker.com/_/postgres) and [MySQL](https://hub.docker.com/_/mysql).
 
-#### Upload the services in the order below
-
-- config-server, eureka, zuul, boot-admin, auth, loja, fornecedor and transportador.
-
-#### Microservices and ports
+#### Upload the microservices in the order below
 
 - [config-server](https://github.com/mupezzuol/spring-microservice-config-server) _`8888`_
 - [eureka](https://github.com/mupezzuol/spring-microservice-eureka-server) _`8761`_
