@@ -10,7 +10,7 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 ## About the project <a name="about"></a> :link:
 
-The project was developed using Spring Boot, so it was adopted an architecture based on microservices using all the power of Spring Cloud and its technologies. When we are working with Spring we have several advantages for gaining technologies and solutions already ready to be implemented, so we made use of some of them.
+The project was developed using _`Spring Boot (2.1.5.RELEASE)`_, so it was adopted an architecture based on microservices using all the power of Spring Cloud and its technologies. When we are working with Spring we have several advantages for gaining technologies and solutions already ready to be implemented, so we made use of some of them.
 
 #### Breaking the domain into services
 
@@ -115,20 +115,35 @@ Building distributed systems doesn't need to be complex and error-prone. Spring 
 
 Para execução.....
 
-#### Upload the services in the order below:
+#### What you need to have installed
+
+- Java 8;
+- Maven;
+- PostgreSQL and MySQL (recommended to use Docker).
+
+#### Database
+
+- Nós utilizamos o banco de dados _`PostgreSQL`_ para o microserviço __fornecedor__ e o banco de dados _`MySQL`_ para os microserviços __loja__ and __transportador__. Dessa forma conseguimos trabalhar com bancos de dados diversos, usamos dessa forma por questões de estudo e aprendizado.
+- Usando _`Docker`_ é bem simples criar a base de dados, fica a recomendação, caso queria usar, poderão utilizar os comandos abaixo:
+
+```sh
+docker run --name my-mysql -v /your-folder-volumes:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8.0
+```
+
+#### Upload the services in the order below
 
 - config-server, eureka, zuul, boot-admin, auth, loja, fornecedor and transportador.
 
-#### Microservices and ports:
+#### Microservices and ports
 
-- [loja](https://github.com/mupezzuol/spring-microservice-loja) _`8080`_
-- [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) _`8081`_
-- [transportador](https://github.com/mupezzuol/spring-microservice-transportador) _`8083`_
-- [auth](https://github.com/mupezzuol/spring-microservice-auth) _`8088`_
 - [config-server](https://github.com/mupezzuol/spring-microservice-config-server) _`8888`_
 - [eureka](https://github.com/mupezzuol/spring-microservice-eureka-server) _`8761`_
 - [zuul](https://github.com/mupezzuol/spring-microservice-zuul) _`5555`_
 - [boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) _`8082`_
+- [auth](https://github.com/mupezzuol/spring-microservice-auth) _`8088`_
+- [loja](https://github.com/mupezzuol/spring-microservice-loja) _`8080`_
+- [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) _`8081`_
+- [transportador](https://github.com/mupezzuol/spring-microservice-transportador) _`8083`_
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
