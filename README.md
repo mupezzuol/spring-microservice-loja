@@ -161,6 +161,9 @@ mvn clean install spring-boot:run -Dmaven.test.skip=true
 
 Stay free to use your favorite IDE.:relaxed:
 
+Using Spring Tools Suite 4 it is very simple to upload microservices.:heart_eyes:
+![sts4](img/gif-sts4.gif)
+
 #### Postman
 
 - To perform the services tests, follow the file _`microservices-murillo-pezzuol.postman_collection.json`_ to be imported into Postman located at the root of the repository __[loja](https://github.com/mupezzuol/spring-microservice-loja)__.
