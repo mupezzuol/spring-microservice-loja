@@ -1,6 +1,6 @@
 # Microservices with Spring Boot - Store :white_check_mark:
 
-Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so that we can use these projects as a study or as a basis for new projects, even sharing new ideas:bulb:. Feel free to contribute to these projects right here.:hearts:
+Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so that we can use these projects as a study or as a basis for new projects, even sharing new ideas:bulb:. Feel free to contribute to these projects right here.:heart:
 
 ## Index :pushpin:
 - [About the project](#about)
@@ -103,8 +103,6 @@ Below is the flow of OAuth2.
 
 - To deal with this type of error we made a simple implementation, where each step that the microservice store requests for other services we save the request status in the entity, so that if there is Hystrix treatment we can make another request from that state. Here are the status we use: _`RECEIVED`_, _`ORDER_REQUESTED`_ and _`RESERVE_DELIVERED`_.
 
-![Errors Status](img/errors-status.png)
-
 #### Spring Cloud with Spring Boot
 
 Building distributed systems doesn't need to be complex and error-prone. Spring Cloud offers a simple and accessible programming model to the most common distributed system patterns, helping developers build resilient, reliable, and coordinated applications. Spring Cloud is built on top of Spring Boot, making it easy for developers to get started and become productive quickly.
@@ -117,10 +115,10 @@ Follow the instructions below to build and execute the project in a simple and e
 
 #### What you need to have installed
 
-- Java 8;
+- Java 8;:heart:
 - Maven;
 - PostgreSQL and MySQL (recommended to use Docker);
-- Postman for testing. 
+- Postman for testing.
 
 #### Database
 
