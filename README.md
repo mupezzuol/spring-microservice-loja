@@ -168,7 +168,7 @@ Using _`Spring Tools Suite 4`_ it is very simple to upload microservices.:heart_
 
 ![Postman](img/postman.png)
 
-Below are some tests performed on Postman..:heart_eyes:
+Below are some tests performed on Postman.:heart_eyes:
 ![sts4](img/postman-endpoints.gif)
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
