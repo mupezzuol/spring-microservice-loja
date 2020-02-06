@@ -66,7 +66,7 @@ zuul:
 
 - In the [loja](https://github.com/mupezzuol/spring-microservice-loja) microservice when we receive an access token to perform a purchase operation, for example, we need to take that same token and forward it to our calls to customers (Feign) from other microservices, because when we use Feign it will perform new requests to customers, but he does not know the header information originating from the request, so we must configure it so that he knows which header he should pass on to his requests to customers, as the other microservices will need to authenticate as well.
 
-- We have implemented an interceptor to retrieve the request information through the _`SecurityContextHolder`_, making a validation whether or not there is authentication information, if it exists, we were able to redeem the access token value. With the token information in hand we use Feign's RestTemplate to add the user's token to the request header, so Feign can pass the token on to his calls.
+- We have implemented an interceptor to retrieve the request information through the _`SecurityContextHolder`_, making a validation whether or not there is authentication information, if it exists, we were able to redeem the access token value. With the token information in hand we use _`Feign's RestTemplate`_ to add the user's token to the request header, so Feign can pass the token on to his calls.
 
 Microservice [__loja__](https://github.com/mupezzuol/spring-microservice-loja) -> _`SpringMicroserviceLojaApplication.java`_
 ```java
@@ -113,7 +113,13 @@ Building distributed systems doesn't need to be complex and error-prone. Spring 
 
 ## How to run <a name="run"></a> :wrench:
 
-#### Microservices:
+Para execução.....
+
+#### Upload the services in the order below:
+
+- config-server, eureka, zuul, boot-admin, auth, loja, fornecedor and transportador.
+
+#### Microservices and ports:
 
 - [loja](https://github.com/mupezzuol/spring-microservice-loja) _`8080`_
 - [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) _`8081`_
