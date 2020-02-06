@@ -113,7 +113,15 @@ Building distributed systems doesn't need to be complex and error-prone. Spring 
 
 ## How to run <a name="run"></a> :wrench:
 
-This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....This project was built from a use of .....
+__Microservices:__
+loja -> 8080
+fornecedor -> 8081
+transportador -> 8083
+auth -> 8088
+config-server -> 8888
+eureka -> 8761
+zuul -> 5555
+boot-admin -> 8082
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
