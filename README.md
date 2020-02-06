@@ -166,8 +166,6 @@ Using _`Spring Tools Suite 4`_ it is very simple to upload microservices.:heart_
 
 - To perform the services tests, follow the file _`microservices-murillo-pezzuol.postman_collection.json`_ to be imported into Postman located at the root of the repository __[loja](https://github.com/mupezzuol/spring-microservice-loja)__.
 
-![Postman](img/postman.png)
-
 Below are some tests performed on Postman.:heart_eyes:
 ![sts4](img/postman-endpoints.gif)
 
