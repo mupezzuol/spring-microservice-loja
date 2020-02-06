@@ -116,13 +116,13 @@ Building distributed systems doesn't need to be complex and error-prone. Spring 
 #### Microservices:
 
 - [loja](https://github.com/mupezzuol/spring-microservice-loja) _`8080`_
-- [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) -> 8081
-- [transportador](https://github.com/mupezzuol/spring-microservice-transportador) -> 8083
-- [auth](https://github.com/mupezzuol/spring-microservice-auth) -> 8088
-- [config-server](https://github.com/mupezzuol/spring-microservice-config-server) -> 8888
-- [eureka](https://github.com/mupezzuol/spring-microservice-eureka-server) -> 8761
-- [zuul](https://github.com/mupezzuol/spring-microservice-zuul) -> 5555
-- [boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) -> 8082
+- [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) _`8081`_
+- [transportador](https://github.com/mupezzuol/spring-microservice-transportador) _`8083`_
+- [auth](https://github.com/mupezzuol/spring-microservice-auth) _`8088`_
+- [config-server](https://github.com/mupezzuol/spring-microservice-config-server) _`8888`_
+- [eureka](https://github.com/mupezzuol/spring-microservice-eureka-server) _`8761`_
+- [zuul](https://github.com/mupezzuol/spring-microservice-zuul) _`5555`_
+- [boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) _`8082`_
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
