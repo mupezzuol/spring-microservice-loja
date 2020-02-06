@@ -161,7 +161,9 @@ Fique livre para utilizar a sua IDE favorita.:relaxed:
 
 #### Postman
 
-- Segue HERE um arquivo exportado do Postman com tod..
+- Para realizar os testes aos serviços, segue o arquivo _`microservices-murillo-pezzuol.postman_collection.json`_ para ser importado no Postman localizado na raiz do repositório __[loja](https://github.com/mupezzuol/spring-microservice-loja)__.
+
+![Postman](img/postman.png)
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
