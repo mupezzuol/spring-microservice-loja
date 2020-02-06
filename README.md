@@ -10,23 +10,23 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 ## About the project <a name="about"></a> :link:
 
-O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arquitetura baseada em micro serviços utilizando todo o poder do Spring Cloud e suas tecnologias. Quando estamos trabalhando com Spring temos diversas vantagens por ganharmos tecnologias e soluções já prontas para serem implementadas, portanto fizemos o uso de algumas delas.  
+The project was developed using Spring Boot, so it was adopted an architecture based on micro services using all the power of Spring Cloud and its technologies. When we are working with Spring we have several advantages for gaining technologies and solutions already ready to be implemented, so we made use of some of them.
 
 #### Breaking the domain into services
 
-- Nós quebramos o domínio da solução em 3 projetos (loja, fornecedor, transportador), sendo assim em nossas APIs nós utilizamos algumas tecnologias e soluções para construir uma arquitetura sólida, segura, rastreável e escalável.
+- We broke the domain of the solution into 3 projects (store, supplier, transporter), so in our APIs we use some technologies and solutions to build a solid, secure, traceable and scalable architecture.
 
 #### Spring Cloud Netflix Eureka
 
-- Usamos o Netflix Eureka como uma solução de Service Discovery, ela é bem simples e fácil de implementar.
+- We use Netflix Eureka as a Service Discovery solution, it is very simple and easy to implement.
 
 #### Spring Cloud Config
 
-- As configurações yaml dos projetos foram todas exportadas e configuradas através do microserviço 'Config Server'.
+- The yaml configurations of the projects were all exported and configured through the 'Config Server' microservice.
 
 #### Spring Cloud OpenFeign
 
-- Foi utilizado Spring Feign para realizar chamadas entre micro serviços de forma simples para seus clientes, é um projeto que foi inspirado em Retrofit, JAXRS-2.0 e WebSocket. Com ele nós também conseguimos utilizar o Client Side Load Balancer pois o Feign é integrado com o Ribbon, que por sua vez também é integrado com o Eureka.
+- Spring Feign was used to make calls between micro services in a simple way for its customers, it is a project that was inspired by Retrofit, JAXRS-2.0 and WebSocket. With it we are also able to use the Client Side Load Balancer because Feign is integrated with the Ribbon, which in turn is also integrated with Eureka.
 
 #### Spring Cloud Sleuth
 
@@ -34,8 +34,8 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 
 #### Netflix Hystrix
 
-- Usamos o _`Netflix Hystrix`_ que implementa o padrão Circuit Breaker, que de forma bem rápida é um _`failover`_ para chamadas entre micro serviços, ou seja, caso um micro serviço estiver fora do ar um método de _`fallback`_ é chamado e aquela enxurrada de falhas é evitada.
-- Nós também conseguimos usar o Bulkhead Pattern usando o 'threadPoolKey' do próprio Hystrix para isolarmos as threads e não travar nossos serviços.
+- We use Netflix Hystrix that implements the Circuit Breaker standard, which very quickly is a failover for calls between micro services, that is, if a micro service is down, a fallback method is called and that flood of failures is avoided.
+- We also managed to use the Bulkhead Pattern using Hystrix's own threadPoolKey to isolate the threads and not block our services.
 
 #### Netflix Zuul
 
@@ -43,9 +43,9 @@ O projeto foi desenvolvido utilizando Spring Boot, portanto foi adotado uma arqu
 
 #### Spring Cloud OAuth (OAuth2) - Authentication and authorization between microservices
 
-- Nós configuramos toda a segurança com o Spring Security e Spring Cloud OAuth e plugamos através de adapters padrões do spring security com o OAuth2. O usuário e senha estão em memória para facilitar nos testes.
-- Foi implementado um token no formato JSON Web Tokens (JWT) padrão.
-- Para cada microserviço que queremos atribuir segurança, devemos configura-lo de uma forma que ele saiba aonde ele deve se autenticar. Quando chega uma requisição para o microserviço ele simplesmente bloqueia, após isso ele vai até o microserviço referente a segurança 'auth' para validar as informações do usuário, para dizer se pode ter acesso ao recurso ou não, se é válido ou não aquele token de acesso. Para isso devemos configurar essa chamada.
+- We set up all security with Spring Security and Spring Cloud OAuth and plugged in through standard spring security adapters with OAuth2. The username and password are in memory to facilitate testing.
+- A token in the standard JSON Web Tokens (JWT) format was implemented.
+- For each microservice that we want to assign security, we must configure it in a way that it knows where it must authenticate itself. When a request for the microservice arrives, it simply blocks it, after that it goes to the microservice referring to the 'auth' security to validate the user's information, to say whether it can access the resource or not, whether that token is valid or not. access. For that we must configure this call.
 
 Microservice [__auth__](https://github.com/mupezzuol/spring-microservice-auth) -> _`application.yml`_
 ```yaml
@@ -55,7 +55,7 @@ security:
       user-info-uri: http://localhost:8088/user
 ```
 
-- Quando estamos utilizando um API Gateway nós precisamos repassar o token de acesso da requisição que chega ao Zuul para a requisição que o Zuul faz para os microserviços, para isso configuramos da seguinte forma.
+- When we are using an API Gateway we need to pass the access token from the request that arrives at Zuul to the request that Zuul makes for microservices, for this we configure as follows.
 
 Microservice [__zuul__](https://github.com/mupezzuol/spring-microservice-zuul) -> _`application.yml`_
 ```yaml
@@ -64,9 +64,9 @@ zuul:
   - Cookie, Authorization
 ```
 
-- No microserviço 'loja' quando recebemos um token de acesso para realizar uma operação de compra por exemplo, nós precisamos pegar esse mesmo token e repassar para as nossas chamadas aos clientes (Feign) de outros microserviços, pois quando usamos o Feign ele irá realizar novas requisições aos clientes, porém ele não sabe as informações do header originário da requisição, por isso devemos configura-lo para ele saber qual é o header que ele deverá repassar para as suas requisições aos clientes, pois os outros microserviços irão precisar se autenticar também.
+- In the 'shop' microservice when we receive an access token to perform a purchase operation, for example, we need to take that same token and forward it to our calls to customers (Feign) from other microservices, because when we use Feign it will perform new requests to customers, but he does not know the header information originating from the request, so we must configure it so that he knows which header he should pass on to his requests to customers, as the other microservices will need to authenticate as well.
 
-- Nós implementamos um interceptor para pegarmos as informações da requisição através do 'SecurityContextHolder', fazendo uma validação se existe ou não informações de autenticação, caso exista, nós conseguimos resgatar o valor do token de acesso. Com a informação do token em mãos nós usamos o RestTemplate do Feign para adicionar no header da requisição o token do usuário, dessa forma o Feign consegue repassar o token para suas chamadas.
+- We have implemented an interceptor to retrieve the request information through the 'SecurityContextHolder', making a validation whether or not there is authentication information, if it exists, we were able to redeem the access token value. With the token information in hand we use Feign's RestTemplate to add the user's token to the request header, so Feign can pass the token on to his calls.
 
 Microservice [__loja__](https://github.com/mupezzuol/spring-microservice-loja) -> _`SpringMicroserviceLojaApplication.java`_
 ```java
@@ -88,7 +88,7 @@ public RequestInterceptor getInterceptorDeAutenticacao() {
 }
 ```
 
-- É de extrema importância adicionar uma configuração ao Hystrix para que ele possa compartilhar o contexto de segurança, caso esteja desativado não é possível repassar o token, pois o Hystrix cria diversos pool de threads.
+- It is extremely important to add a configuration to Hystrix so that it can share the security context, if it is disabled it is not possible to forward the token, as Hystrix creates several thread pools.
 
 Microservice [__loja__](https://github.com/mupezzuol/spring-microservice-loja) -> _`application.yml`_
 ```yaml
@@ -113,15 +113,16 @@ Building distributed systems doesn't need to be complex and error-prone. Spring 
 
 ## How to run <a name="run"></a> :wrench:
 
-__Microservices:__
-loja -> 8080
-fornecedor -> 8081
-transportador -> 8083
-auth -> 8088
-config-server -> 8888
-eureka -> 8761
-zuul -> 5555
-boot-admin -> 8082
+#### Microservices:
+
+- [loja](https://github.com/mupezzuol/spring-microservice-loja) -> 8080
+- [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) -> 8081
+- [transportador](https://github.com/mupezzuol/spring-microservice-transportador) -> 8083
+- [auth](https://github.com/mupezzuol/spring-microservice-auth) -> 8088
+- [config-server](https://github.com/mupezzuol/spring-microservice-config-server) -> 8888
+- [eureka](https://github.com/mupezzuol/spring-microservice-eureka-server) -> 8761
+- [zuul](https://github.com/mupezzuol/spring-microservice-zuul) -> 5555
+- [boot-admin](https://github.com/mupezzuol/spring-microservice-boot-admin) -> 8082
 
 ## Projects and repositories <a name="prjrepo"></a> :file_folder:
 
