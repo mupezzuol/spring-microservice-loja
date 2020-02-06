@@ -96,7 +96,7 @@ hystrix:
   shareSecurityContext: true
 ```
 
-Segue abaixo o fluxo do OAuth2.
+Below is the flow of OAuth2.
 ![OAuth2](img/oauth2-fluxo.png)
 
 #### Handling errors in the integration between services
@@ -115,7 +115,7 @@ Building distributed systems doesn't need to be complex and error-prone. Spring 
 
 #### Microservices:
 
-- [loja](https://github.com/mupezzuol/spring-microservice-loja) -> 8080
+- [loja](https://github.com/mupezzuol/spring-microservice-loja) _`8080`_
 - [fornecedor](https://github.com/mupezzuol/spring-microservice-fornecedor) -> 8081
 - [transportador](https://github.com/mupezzuol/spring-microservice-transportador) -> 8083
 - [auth](https://github.com/mupezzuol/spring-microservice-auth) -> 8088
