@@ -1,5 +1,20 @@
 # Microservices with Spring Boot - Store :white_check_mark:
 
+<p align="center">
+  <a href="https://github.com/mupezzuol/spring-microservice-loja/releases">
+    <img src="https://img.shields.io/github/v/release/mupezzuol/spring-microservice-loja" alt="Version">
+  </a>
+  <a href="https://github.com/mupezzuol/spring-microservice-loja/stargazers">
+    <img src="https://img.shields.io/github/stars/mupezzuol/spring-microservice-loja" alt="Stars">
+  </a>
+  <a href="https://github.com/mupezzuol/spring-microservice-loja/network">
+    <img src="https://img.shields.io/github/forks/mupezzuol/spring-microservice-loja" alt="Forks">
+  </a>
+  <a href="https://github.com/mupezzuol/spring-microservice-loja/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/mupezzuol/spring-microservice-loja" alt="License">
+  </a>
+</p>
+
 Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so that we can use these projects as a study or as a basis for new projects, even sharing new ideas:bulb:. Feel free to contribute to these projects right here.:heart:
 
 ## Index :pushpin:
