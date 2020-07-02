@@ -25,11 +25,11 @@ Microservices with Spring and best of all with _`MIT license`_:heart_eyes:, so t
 
 ## About the project <a name="about"></a> :link:
 
-The project was developed using _`Spring Boot (2.1.5.RELEASE)`_, so it was adopted an architecture based on microservices using all the power of Spring Cloud and its technologies. When we are working with Spring we have several advantages for gaining technologies and solutions already ready to be implemented, so we made use of some of them.
+I developed this project using _`Spring Boot (2.1.5.RELEASE)`_, so it adopts an architecture based on microservices using all the power of Spring Cloud and its technologies. When we are working with Spring, we have several advantages for gaining technologies and solutions already ready to be implemented, so we made use of some of them.
 
 #### Breaking the domain into services
 
-- We broke the domain of the solution into 3 projects _`(loja, fornecedor, transportador)`_, so in our APIs we use some technologies and solutions to build a solid, secure, traceable and scalable architecture.
+- I broke the domain of the solution into three projects _`(loja, fornecedor, transportador)`_, so in our APIs, we use some technologies and solutions to build a robust, secure, traceable and scalable architecture.
 
 #### Spring Cloud Netflix Eureka
 
@@ -41,26 +41,26 @@ The project was developed using _`Spring Boot (2.1.5.RELEASE)`_, so it was adopt
 
 #### Spring Cloud OpenFeign
 
-- _`Spring Feign`_ was used to make calls between microservices in a simple way for its customers, it is a project that was inspired by Retrofit, JAXRS-2.0 and WebSocket. With it we are also able to use the _`Client Side Load Balancer`_ because Feign is integrated with the _`Ribbon`_, which in turn is also integrated with Eureka.
+- Used _`Spring Feign`_ to make calls between microservices in a simple way for its customers, it is a project that was inspired by Retrofit, JAXRS-2.0 and WebSocket. With it we are also able to use the _`Client Side Load Balancer`_ because Feign is integrated with the _`Ribbon`_, which in turn is also integrated with Eureka.
 
 #### Spring Cloud Sleuth
 
-- _`Spring Cloud Sleuth`_ was used to assist us with _`Distributed Tracing`_, responsible for implementing a distributed tracking solution, which helps us track requests between microservices through a correlation ID, so that we can track the entire flow of a request that goes through several microservices. To observe the logs we use _`Papertrail.`_
+- Used _`Spring Cloud Sleuth`_ to assist with _`Distributed Tracing`_, responsible for implementing a distributed tracking solution, which helps us track requests between microservices through a correlation ID, so that we can track the entire flow of a request that goes through several microservices. To observe the logs we use _`Papertrail.`_
 
 #### Netflix Hystrix
 
-- We use _`Netflix Hystrix`_ that implements the _`Circuit Breaker`_ standard, which very quickly is a _`failover`_ for calls between microservices, that is, if a microservice is down, a _`fallback`_ method is called and that flood of failures is avoided.
+- Used _`Netflix Hystrix`_ that implements the _`Circuit Breaker`_ standard, which very quickly is a _`failover`_ for calls between microservices, that is, if a microservice is down, a _`fallback`_ method is called and that flood of failures is avoided.
 - We also managed to use the _`Bulkhead Pattern`_ using Hystrix's own _`threadPoolKey`_ to isolate the threads and not block our services.
 
 #### Netflix Zuul
 
-- We use _`Spring Zuul`_ as an _`API Gateway`_ because its implementation and its high integration with Netflix Eureka are very simple. Zuul uses Eureka to know the instances of microservices and, using the Ribbon, is able to load balance user requests.
+- Used _`Spring Zuul`_ as an _`API Gateway`_ because its implementation and its high integration with Netflix Eureka are very simple. Zuul uses Eureka to know the instances of microservices and, using the Ribbon, is able to load balance user requests.
 
 #### Spring Cloud OAuth (OAuth2) - Authentication and authorization between microservices
 
-- We set up all security with Spring Security and _`Spring Cloud OAuth`_ and plugged in through standard spring security adapters with _`OAuth2.`_ The username and password are in memory to facilitate testing.
+- Set up all security with Spring Security and _`Spring Cloud OAuth`_ and plugged in through standard spring security adapters with _`OAuth2.`_ The username and password are in memory to facilitate testing.
 - A token in the standard _`JSON Web Tokens (JWT)`_ format was implemented.
-- For each microservice that we want to assign security, we must configure it in a way that it knows where it must authenticate itself. When a request for the microservice arrives, it simply blocks it, after that it goes to the microservice referring to the [auth](https://github.com/mupezzuol/spring-microservice-auth) security to validate the user's information, to say whether it can access the resource or not, whether that token is valid or not. access. For that we must configure this call.
+- For each microservice that we want to assign security, we must configure it in a way that it knows where it must authenticate itself. When a request for the microservice arrives, it simply blocks it, after that it goes to the microservice referring to the [auth](https://github.com/mupezzuol/spring-microservice-auth) security to validate the user's information, to say whether it can access the resource or not, whether that token is valid or not. access. For that, we must configure this call.
 
 Microservice [__auth__](https://github.com/mupezzuol/spring-microservice-auth) -> _`application.yml`_
 ```yaml
@@ -120,7 +120,7 @@ Below is the flow of OAuth2.
 
 #### Spring Cloud with Spring Boot
 
-Building distributed systems doesn't need to be complex and error-prone. Spring Cloud offers a simple and accessible programming model to the most common distributed system patterns, helping developers build resilient, reliable, and coordinated applications. Spring Cloud is built on top of Spring Boot, making it easy for developers to get started and become productive quickly.
+Building distributed systems don't need to be complicated and error-prone. Spring Cloud offers a simple and accessible programming model to the most common distributed system patterns, helping developers build resilient, reliable, and coordinated applications. Spring Cloud is built on top of Spring Boot, making it easy for developers to get started and become productive quickly.
 
 ![Spring Cloud](img/spring-cloud.png)
 
